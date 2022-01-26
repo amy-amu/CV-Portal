@@ -1,0 +1,34 @@
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav #drawer class="sidenav" fixedInViewport
+      [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+      [mode]="(isHandset$ | async) ? 'over' : 'side'"
+      [opened]="(isHandset$ | async) === false">
+    <mat-toolbar>
+      <img src="https://clapp.ams3.digitaloceanspaces.com/cku3zbsgd2gq5v91xuadtqmdhdqy" alt="logo" height="50px" width="auto">
+    </mat-toolbar>
+    <mat-nav-list>
+      <a mat-list-item href="<app-dashboard></app-dashboard">Admin Board</a>
+      <a mat-list-item href="<app-form></app-form">Application Form</a>
+      <a mat-list-item href="<app-cv-folder></app-cv-folder>">CV Folder</a>
+      <a mat-list-item href="<app-scoreboard></app-scoreboard>">Score Board</a>
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <mat-toolbar color="primary">
+      <button
+        type="button"
+        aria-label="Toggle sidenav"
+        mat-icon-button
+        (click)="drawer.toggle()"
+        *ngIf="isHandset$ | async">
+        <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+      </button>
+    
+    </mat-toolbar>
+<app-dashboard></app-dashboard>
+<app-form></app-form>
+<app-cv-folder></app-cv-folder>
+<app-scoreboard></app-scoreboard>
+
+  </mat-sidenav-content>
+</mat-sidenav-container>
